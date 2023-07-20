@@ -9,7 +9,7 @@ class AlunoSerializer(serializers.ModelSerializer):
             "id",
             "nome",
             "rg",
-            " cpf",
+            "cpf",
         ]
 
 

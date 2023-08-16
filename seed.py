@@ -23,7 +23,10 @@ def criando_alunos(quantidade_de_pessoas):
         )
         cpf = cpf.generate()
         data_nascimento = fake.date_between(start_date="-18y", end_date="today")
-        a = Aluno(nome=nome, rg=rg, cpf=cpf, data_nascimento=data_nascimento)
+        celular = fake.cellphone_number()
+        a = Aluno(
+            nome=nome, rg=rg, cpf=cpf, data_nascimento=data_nascimento, celular=celular
+        )
         a.save()
 
 

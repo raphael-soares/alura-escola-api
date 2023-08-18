@@ -42,6 +42,7 @@ class MatriculaViewSet(viewsets.ModelViewSet):
     serializer_class = MatriculaSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated, DjangoModelPermissions]
+    http_method_names = ["get", "post", "put", "patch"]
 
 
 class ListaMatriculasAluno(generics.ListAPIView):

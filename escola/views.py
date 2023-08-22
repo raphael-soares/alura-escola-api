@@ -8,6 +8,11 @@ from escola.serializer import (
     ListaMatriculasAlunoSerializer,
     ListaAlunosMatriculadosSerializer,
 )
+
+
+from django.utils.decorators import method_decorator
+
+from django.views.decorators.cache import cache_page
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 
@@ -16,6 +21,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 
+@method_decorator(cache_page(20), name="list")
 class AlunosViewSet(viewsets.ModelViewSet):
     """Exibindo todos os alunos e alunas"""
 
@@ -30,6 +36,7 @@ class AlunosViewSet(viewsets.ModelViewSet):
             return AlunoSerializer
 
 
+@method_decorator(cache_page(20), name="list")
 class CursosViewSet(viewsets.ModelViewSet):
     """Exibindo todos os cursos"""
 
